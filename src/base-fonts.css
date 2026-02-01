@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --font-base: "GFS Didot", serif;
+  --font-heading: "Josefin Sans", sans-serif;
+  --color-primary: rgb(247, 233, 232);
+}
+
+body {
+  font-family: var(--font-base);
+}
+
+nav,
+header,
+main,
+section,
+p,
+a,
+li,
+button {
+  font-family: var(--font-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading) !important;
+}
+
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+.menu,
+.menu li {
+  @apply mb-6;
+  a {
+    font-family: var(--font-base);
+    font-style: italic;
+  }
+}

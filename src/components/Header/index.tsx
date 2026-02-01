@@ -1,39 +1,25 @@
-export default () => {
+export default function Header() {
   return (
-    <header class="w-full py-4 bg-gray-200 dark:bg-gray-800 shadow-md">
-      <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">
-          My Preact App
-        </h1>
-        <nav>
-          <ul class="flex space-x-4">
-            <li>
-              <a
-                href="#"
-                class="text-gray-700 dark:text-gray-300 hover:underline"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-700 dark:text-gray-300 hover:underline"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-gray-700 dark:text-gray-300 hover:underline"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <header className="w-full fixed top-0 left-0 z-20">
+      <nav className="max-w-[120px] ml-16 mt-16">
+        <ul className="list-none menu">
+          <li>
+            <a href="">Inicio</a>
+          </li>
+          <li>
+            <a href="">Nuestra Historia</a>
+          </li>
+          <li>
+            <a href="">Detalles</a>
+          </li>
+          <li>
+            <a href="">RSVP</a>
+          </li>
+          <li>
+            <a href="">Galería</a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
-};
+}
