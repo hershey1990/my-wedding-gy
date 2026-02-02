@@ -15,11 +15,9 @@ export function App() {
       <main class="min-h-screen relative">
         <Header />
         <Hero />
-        <div class="relative z-10 pt-[100vh]">
-          <OurVotes />
-          <Timer />
-          <AboutLocation />
-        </div>
+        <OurVotes />
+        <Timer />
+        <AboutLocation />
       </main>
     </>
   );

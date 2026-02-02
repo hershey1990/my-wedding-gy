@@ -17,8 +17,9 @@ html {
   background-repeat: no-repeat;
   z-index: 0;
   @media (max-width: 768px) {
-    background-color: white;
+    height: 800px;
+    background-color: #e6e5e0;
     background-size: contain;
-    background-position: top;
+    background-position: center;
   }
 }
