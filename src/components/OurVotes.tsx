@@ -18,7 +18,7 @@ export default () => {
         duro; y él, con esa pregunta, le pedía a ella que fuera su luz en la
         oscuridad, su guía y compañera en el camino de la vida.
       </p>
-      <figure class="md:absolute relative md:bottom-[-300px] bottom-0 w-full flex justify-center">
+      <figure class="md:absolute relative md:bottom-[-300px] bottom-0 w-full flex justify-center md:mt-0 mt-8">
         <img
           src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/us.webp"
           alt=""
