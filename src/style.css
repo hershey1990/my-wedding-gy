@@ -14,5 +14,10 @@ html {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   z-index: 0;
+  @media (max-width: 768px) {
+    background-size: contain;
+    background-position: top;
+  }
 }
