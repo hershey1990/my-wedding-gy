@@ -27,7 +27,7 @@ export default () => {
   }, []);
 
   return (
-    <section class="w-full h-screen bg-(--border-color) flex flex-col items-center justify-center text-center p-4 md:pt-[250px] pt-0">
+    <section class="w-full md:h-screen bg-(--border-color) flex flex-col items-center justify-center text-center p-4 md:pt-[250px] py-20">
       <p>Cuenta atras</p>
       <h2 class="text-3xl md:text-4xl font-heading font-thin mb-6">
         Para el gran día
