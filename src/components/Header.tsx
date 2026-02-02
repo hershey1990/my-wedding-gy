@@ -50,16 +50,24 @@ export default function Header() {
           <div className="md:hidden absolute top-full left-0 w-full bg-white/90 backdrop-blur">
             <ul className="list-none menu flex flex-col items-center gap-4 py-4">
               <li>
-                <a href="">Inicio</a>
+                <a href="" onClick={() => setOpen(false)}>
+                  Inicio
+                </a>
               </li>
               <li>
-                <a href="#our-votes">Nuestra Historia</a>
+                <a href="#our-votes" onClick={() => setOpen(false)}>
+                  Nuestra Historia
+                </a>
               </li>
               <li>
-                <a href="#details">Detalles</a>
+                <a href="#details" onClick={() => setOpen(false)}>
+                  Detalles
+                </a>
               </li>
               <li>
-                <a href="">Confirmar asistencia</a>
+                <a href="" onClick={() => setOpen(false)}>
+                  Confirmar asistencia
+                </a>
               </li>
             </ul>
           </div>
