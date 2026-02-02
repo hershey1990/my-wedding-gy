@@ -17,6 +17,7 @@ html {
   background-repeat: no-repeat;
   z-index: 0;
   @media (max-width: 768px) {
+    background-color: white;
     background-size: contain;
     background-position: top;
   }
