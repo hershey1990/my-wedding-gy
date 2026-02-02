@@ -1,10 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=GFS+Didot&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 :root {
-  --font-base: "GFS Didot", serif;
-  --font-heading: "Josefin Sans", sans-serif;
+  --font-base: "Josefin Sans", sans-serif;
+  --font-heading: "Great Vibes", cursive;
   --color-primary: rgb(247, 233, 232);
   --color-font-primary: rgb(47, 46, 46);
+  --border-color: hsl(30 35% 97%);
+  --border-color-dark: color-mix(in srgb, var(--border-color) 70%, black 30%);
+  --tone-1000: #c27ba0;
+  --tone-900: #c888a9;
+  --tone-800: #ce95b3;
+  --tone-700: #d4a2bc;
+  --tone-600: #daafc6;
+  --tone-500: #e0bdcf;
+  --tone-400: #e6cad9;
+  --tone-300: #ecd7e2;
+  --tone-200: #f2e4ec;
+  --tone-100: #f8f1f5;
+  --tone-0: #ffffff;
+  --shade-1000: #c27ba0;
+  --shade-900: #ae6e90;
+  --shade-800: #9b6280;
+  --shade-700: #875670;
+  --shade-600: #744960;
+  --shade-500: #613d50;
+  --shade-400: #4d3140;
+  --shade-300: #3a2430;
+  --shade-200: #261820;
+  --shade-100: #130c10;
+  --shade-0: #000000;
 }
 
 body {
@@ -30,6 +56,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading) !important;
+  /* @apply tracking-[14px]; */
+  font-style: thin;
+  color: var(--tone-800);
 }
 
 .font-heading {
