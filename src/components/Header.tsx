@@ -43,9 +43,9 @@ export default function Header() {
         <ul className="list-none menu text-center [&>li]:inline-block [&>li]:mx-4">
           <li>
             <a
-              href="#top"
-              onClick={() => setActiveSection("top")}
-              className={getLinkClass("top")}
+              href="#home"
+              onClick={() => setActiveSection("home")}
+              className={getLinkClass("home")}
             >
               Inicio
             </a>

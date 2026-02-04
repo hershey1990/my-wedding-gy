@@ -7,17 +7,21 @@ import OurVotes from "./components/OurVotes";
 import AboutLocation from "./components/AboutLocation";
 import Timer from "./components/Timer";
 import AudioBg from "./components/AudioBg";
+import ConfirmReservation from "./components/ConfirmReservation";
+import Gifts from "./components/Gifts";
 
 export function App() {
   return (
     <>
       <AudioBg />
-      <main id="top" class="min-h-screen relative">
+      <main id="home" class="min-h-screen relative">
         <Header />
         <Hero />
         <OurVotes />
         <Timer />
         <AboutLocation />
+        <Gifts />
+        <ConfirmReservation />
       </main>
     </>
   );
