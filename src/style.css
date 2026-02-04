@@ -16,10 +16,13 @@ html {
   background-attachment: fixed;
   background-repeat: no-repeat;
   z-index: 0;
-  @media (max-width: 768px) {
-    height: 800px;
+}
+
+@media (max-width: 768px) {
+  .hero-parallax {
+    background-attachment: scroll;
     background-color: #e6e5e0;
     background-size: contain;
-    background-position: center;
+    background-position: bottom;
   }
 }
