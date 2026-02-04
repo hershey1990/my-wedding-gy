@@ -1,6 +1,6 @@
 export default () => {
   return (
-    <section class="">
+    <section id="gifts">
       <div class="w-full mb-20 bg-white flex flex-col items-center justify-start text-center p-4 pt-[100px] relative">
         <h2 class="text-3xl md:text-4xl font-heading mb-6">
           Nuestra lista de regalos

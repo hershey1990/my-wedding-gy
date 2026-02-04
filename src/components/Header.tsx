@@ -2,16 +2,15 @@ import { useEffect, useState } from "preact/hooks";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("top");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > window.innerHeight);
 
       const offset = 140;
-      const sections = ["our-votes", "details"];
-      let current = "top";
+      const sections = ["our-votes", "details", "gifts", "rsvp"];
+      let current = "home";
 
       for (const id of sections) {
         const el = document.getElementById(id);
@@ -69,7 +68,20 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="#rsvp" className={getLinkClass("rsvp")}>
+            <a
+              href="#gifts"
+              onClick={() => setActiveSection("gifts")}
+              className={getLinkClass("gifts")}
+            >
+              Regalos
+            </a>
+          </li>
+          <li>
+            <a
+              href="#rsvp"
+              onClick={() => setActiveSection("rsvp")}
+              className={getLinkClass("rsvp")}
+            >
               Confirmar asistencia
             </a>
           </li>
