@@ -69,7 +69,7 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a href="" className={getLinkClass("rsvp")}>
+            <a href="#rsvp" className={getLinkClass("rsvp")}>
               Confirmar asistencia
             </a>
           </li>

@@ -1,6 +1,9 @@
 export default () => {
   return (
-    <section class="w-full h-auto py-10 bg-[var(--color-primary)] flex flex-col items-center justify-center text-center p-4">
+    <section
+      id="rsvp"
+      class="w-full h-auto py-10 bg-[var(--color-primary)] flex flex-col items-center justify-center text-center p-4"
+    >
       {/* Esperamos nos acompañes */}
       <h2 class="text-3xl md:text-4xl font-heading font-thin mb-4">
         ¡Esperamos nos acompañes en nuestro gran día!
