@@ -3,10 +3,26 @@ import { useEffect, useState } from "preact/hooks";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("top");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > window.innerHeight);
+
+      const offset = 140;
+      const sections = ["our-votes", "details"];
+      let current = "top";
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY + offset >= top) {
+          current = id;
+        }
+      }
+
+      setActiveSection(current);
     };
 
     handleScroll();
@@ -14,64 +30,50 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getLinkClass = (id: string) =>
+    activeSection === id ? "!text-[var(--shade-900)]" : "";
+
   return (
     <header
-      className={`w-full fixed top-0 pt-10 left-0 z-20 transition-colors h-[58px] ${
+      className={`w-full fixed top-0 pt-10 left-0 z-20 transition-colors  ${
         scrolled ? "bg-white/70 backdrop-blur" : "bg-transparent"
       }`}
     >
       <nav className="w-full h-full flex items-center justify-center relative">
-        <button
-          type="button"
-          aria-label="Abrir menú"
-          aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
-          className="md:hidden absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-1.5"
-        >
-          <span className="w-6 h-0.5 bg-[var(--color-font-primary)]" />
-          <span className="w-6 h-0.5 bg-[var(--color-font-primary)]" />
-          <span className="w-6 h-0.5 bg-[var(--color-font-primary)]" />
-        </button>
-        <ul className="list-none menu hidden md:flex items-center justify-center gap-6 py-4">
+        <ul className="list-none menu text-center [&>li]:inline-block [&>li]:mx-4">
           <li>
-            <a href="">Inicio</a>
+            <a
+              href="#top"
+              onClick={() => setActiveSection("top")}
+              className={getLinkClass("top")}
+            >
+              Inicio
+            </a>
           </li>
           <li>
-            <a href="#our-votes">Nuestra Historia</a>
+            <a
+              href="#our-votes"
+              onClick={() => setActiveSection("our-votes")}
+              className={getLinkClass("our-votes")}
+            >
+              Nuestra Historia
+            </a>
           </li>
           <li>
-            <a href="#details">Detalles</a>
+            <a
+              href="#details"
+              onClick={() => setActiveSection("details")}
+              className={getLinkClass("details")}
+            >
+              Detalles
+            </a>
           </li>
           <li>
-            <a href="">Confirmar asistencia</a>
+            <a href="" className={getLinkClass("rsvp")}>
+              Confirmar asistencia
+            </a>
           </li>
         </ul>
-        {open && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white/90 backdrop-blur">
-            <ul className="list-none menu flex flex-col items-center gap-4 py-4">
-              <li>
-                <a href="" onClick={() => setOpen(false)}>
-                  Inicio
-                </a>
-              </li>
-              <li>
-                <a href="#our-votes" onClick={() => setOpen(false)}>
-                  Nuestra Historia
-                </a>
-              </li>
-              <li>
-                <a href="#details" onClick={() => setOpen(false)}>
-                  Detalles
-                </a>
-              </li>
-              <li>
-                <a href="" onClick={() => setOpen(false)}>
-                  Confirmar asistencia
-                </a>
-              </li>
-            </ul>
-          </div>
-        )}
       </nav>
     </header>
   );

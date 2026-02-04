@@ -2,7 +2,7 @@ export default () => {
   return (
     <section
       id="our-votes"
-      class="w-full h-screen bg-[var(--color-primary)] flex flex-col items-center justify-start text-center p-4 pt-[100px] relative"
+      class="w-full h-[700px] bg-[var(--color-primary)] flex flex-col items-center justify-start text-center p-4 pt-[100px] relative"
     >
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0 md:divide-x md:divide-gray-300/60 w-full max-w-4xl">
         <h2 class="text-2xl md:text-3xl font-heading md:px-6 font-thin">
@@ -18,7 +18,7 @@ export default () => {
         duro; y él, con esa pregunta, le pedía a ella que fuera su luz en la
         oscuridad, su guía y compañera en el camino de la vida.
       </p>
-      <figure class="md:absolute relative md:bottom-[-300px] top-0 w-full flex justify-center md:mt-0 mt-8">
+      <figure class="md:absolute relative md:top-[350px] top-0 w-full flex justify-center md:mt-0 mt-8">
         <img
           src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/us.webp"
           alt=""

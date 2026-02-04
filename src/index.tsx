@@ -12,7 +12,7 @@ export function App() {
   return (
     <>
       <AudioBg />
-      <main class="min-h-screen relative">
+      <main id="top" class="min-h-screen relative">
         <Header />
         <Hero />
         <OurVotes />
