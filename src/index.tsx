@@ -14,7 +14,7 @@ export function App() {
   return (
     <>
       <AudioBg />
-      <main id="home" class="min-h-screen relative">
+      <main id="home" class="min-h-screen relative bg-white">
         <Header />
         <Hero />
         <OurVotes />
