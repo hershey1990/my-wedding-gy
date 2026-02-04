@@ -29,7 +29,7 @@ export default () => {
           >
             Tu presencia es el mejor regalo que podemos recibir. Si deseáis
             contribuir a nuestro próximo viaje juntos, podes hacerlo de la forma
-            que os resulte más cómoda.
+            que te resulte más cómoda.
           </span>
         </p>
         {/* Cuentas de banco */}
