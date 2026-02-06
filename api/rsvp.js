@@ -1,6 +1,4 @@
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
@@ -16,37 +14,37 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-    const {
-      name = "",
-      email = "",
-      guests = "",
-      message = "",
-      attending = "",
-    } = body || {};
+    const { name = "" } = body || {};
 
-    if (!name && !email) {
-      return res.status(400).json({ error: "Missing name or email" });
+    if (!name) {
+      return res.status(400).json({ error: "Missing name" });
     }
 
-    const from = process.env.RSVP_FROM;
-    const to = process.env.RSVP_TO;
+    const from = process.env.GMAIL_USER;
+    const to = "yalisa9414@gmail.com";
 
     if (!from || !to) {
       return res.status(500).json({ error: "Missing RSVP_FROM or RSVP_TO" });
     }
 
-    const subject = `Nueva confirmación de asistencia - ${name || email}`;
+    const subject = `Nueva confirmación de asistencia - ${name}`;
 
     const html = `
       <h2>Nueva confirmación de asistencia</h2>
-      <p><strong>Nombre:</strong> ${name || "-"}</p>
-      <p><strong>Email:</strong> ${email || "-"}</p>
-      <p><strong>Asistirá:</strong> ${attending || "-"}</p>
-      <p><strong>Invitados:</strong> ${guests || "-"}</p>
-      <p><strong>Mensaje:</strong> ${message || "-"}</p>
+      <p><strong>Nombre:</strong> ${name}</p>
     `;
 
-    await resend.emails.send({
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    await transporter.sendMail({
       from,
       to,
       subject,

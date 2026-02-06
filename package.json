@@ -9,6 +9,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^7.1.0",
 		"leaflet": "^1.9.4",
+		"nodemailer": "^8.0.0",
 		"preact": "^10.26.9",
 		"react-leaflet": "^5.0.0",
 		"resend": "^6.9.1"

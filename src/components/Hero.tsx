@@ -8,7 +8,7 @@ export default function Hero() {
         <h1 className="text-5xl font-bold mb-2 font-thin !text-[var(--shade-800)]">
           Gershell & Yalaniz
         </h1>
-        <p className="text-lg mb-4 italic font-normal">¡Nos vamos a casar!</p>
+        <p className="text-lg mb-4 font-normal">¡Nos vamos a casar!</p>
         <time
           dateTime="2026-03-01"
           className="flex items-center text-2xl md:text-3xl font-thin divide-x divide-[var(--border-color)]"

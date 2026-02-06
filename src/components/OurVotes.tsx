@@ -12,7 +12,7 @@ export default () => {
           el: ¿brillarias como mi estrella para siempre?
         </h2>
       </div>
-      <p class="mt-16 max-w-3xl text-base md:text-lg italic">
+      <p class="mt-16 max-w-3xl text-base md:text-lg">
         Con esa afirmación, ella le juró su lealtad, amor y compañía eterna, la
         paciencia y resiliencia para sostener sus manos hasta en el momento más
         duro; y él, con esa pregunta, le pedía a ella que fuera su luz en la

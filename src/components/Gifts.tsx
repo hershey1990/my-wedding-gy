@@ -27,9 +27,8 @@ export default () => {
               borderRadius: "0.5em",
             }}
           >
-            Tu presencia es el mejor regalo que podemos recibir. Si deseáis
-            contribuir a nuestro próximo viaje juntos, podes hacerlo de la forma
-            que te resulte más cómoda.
+            Lo más valioso es su cariño; agradecemos con amor su apoyo en
+            efectivo para comenzar juntos esta nueva etapa.
           </span>
         </p>
         {/* Cuentas de banco */}
@@ -42,7 +41,7 @@ export default () => {
               <strong>Banco:</strong> Banco de América Central (BAC)
             </p>
             <p class="mb-2">
-              <strong>Número de Cuenta:</strong> 1234567890
+              <strong>Número de Cuenta:</strong> 363535055
             </p>
             <p class="mb-2">
               <strong>Tipo de Cuenta:</strong> Ahorros
@@ -56,26 +55,18 @@ export default () => {
               Cuenta Bancaria - Yalaniz
             </h3>
             <p class="mb-2">
-              <strong>Banco:</strong> Banco Lafise
+              <strong>Banco:</strong> Banco de América Central (BAC)
             </p>
             <p class="mb-2">
-              <strong>Número de Cuenta:</strong> 0987654321
+              <strong>Número de Cuenta:</strong> 367764396
             </p>
             <p class="mb-2">
-              <strong>Tipo de Cuenta:</strong> Corriente
+              <strong>Tipo de Cuenta:</strong> Ahorros
             </p>
             <p class="mb-2">
               <strong>Titular:</strong> Yalaniz Delgado
             </p>
           </div>
-        </div>
-        {/* O dinero en efectivo */}
-        <div class="mt-8 max-w-2xl">
-          <p>
-            También podéis optar por darnos dinero en efectivo durante la boda,
-            lo cual será igual de maravilloso y sera bien usado para nuestro
-            futuro juntos.
-          </p>
         </div>
       </div>
     </section>
