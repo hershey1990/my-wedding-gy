@@ -20,11 +20,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Missing name" });
     }
 
-    const from = process.env.GMAIL_USER;
-    const to = "yalisa9414@gmail.com";
+    const from = process.env.RSVP_FROM || process.env.GMAIL_USER;
+    const to = process.env.RSVP_TO;
+    const pass = process.env.GMAIL_APP_PASSWORD;
 
-    if (!from || !to) {
-      return res.status(500).json({ error: "Missing RSVP_FROM or RSVP_TO" });
+    if (!from || !to || !pass) {
+      return res
+        .status(500)
+        .json({ error: "Missing GMAIL_USER/GMAIL_APP_PASSWORD/RSVP_TO" });
     }
 
     const subject = `Nueva confirmación de asistencia - ${name}`;
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
       secure: true,
       auth: {
         user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
+        pass,
       },
     });
 
@@ -53,8 +56,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    return res
-      .status(500)
-      .json({ error: "Failed to send email" + error.message });
+    console.error("RSVP email error:", error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 }
