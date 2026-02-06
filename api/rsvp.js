@@ -25,9 +25,11 @@ export default async function handler(req, res) {
 
     console.log("Preparing to send RSVP email for:", name);
 
-    const from = process.env.RSVP_FROM || process.env.GMAIL_USER;
+    const from = process.env.GMAIL_USER;
     const to = "yalisa9414@gmail.com";
     const pass = process.env.GMAIL_APP_PASSWORD;
+
+    console.log("Email configuration - From:", from, "To:", to, "pass", pass);
 
     if (!from || !to || !pass) {
       return res
