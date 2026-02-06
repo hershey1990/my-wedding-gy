@@ -5,7 +5,7 @@ export default () => {
     //Stop a propagation
     event?.preventDefault();
     // envia email mediante el api rsvp.js usando fetch
-    const url = "https://my-wedding-gy.vercel.app/api/rsvp";
+    const url = "http://my-wedding-gy.vercel.app/api/rsvp";
     const data = {
       name,
     };
