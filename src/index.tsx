@@ -9,6 +9,7 @@ import Timer from "./components/Timer";
 import AudioBg from "./components/AudioBg";
 import ConfirmReservation from "./components/ConfirmReservation";
 import Gifts from "./components/Gifts";
+import DressCode from "./components/DressCode";
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
         <AboutLocation />
         <Gifts />
         <ConfirmReservation />
+        <DressCode />
       </main>
     </>
   );

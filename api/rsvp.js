@@ -25,16 +25,16 @@ export default async function handler(req, res) {
 
     console.log("Preparing to send RSVP email for:", name);
 
-    const from = process.env.GMAIL_USER;
+    const from = process.env.OUTLOOK_USER;
     const to = "yalisa9414@gmail.com";
-    const pass = process.env.GMAIL_APP_PASSWORD;
+    const pass = process.env.OUTLOOK_APP_PASSWORD;
 
     console.log("Email configuration - From:", from, "To:", to, "pass", pass);
 
     if (!from || !to || !pass) {
       return res
         .status(500)
-        .json({ error: "Missing GMAIL_USER/GMAIL_APP_PASSWORD/RSVP_TO" });
+        .json({ error: "Missing OUTLOOK_USER/OUTLOOK_APP_PASSWORD" });
     }
 
     const subject = `Nueva confirmación de asistencia - ${name}`;
@@ -47,12 +47,15 @@ export default async function handler(req, res) {
     console.log("Sending email from:", from, "to:", to);
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
+      host: "smtp-mail.outlook.com",
+      port: 587,
+      secure: false,
       auth: {
-        user: process.env.GMAIL_USER,
+        user: process.env.OUTLOOK_USER,
         pass,
+      },
+      tls: {
+        ciphers: "SSLv3",
       },
     });
 
