@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.RESEND_FROM;
-    const to = "yalisa9414@gmail.com";
+    const to = "grlopez90@gmail.com"; //"yalisa9414@gmail.com";
 
     console.log("Email configuration - From:", from, "To:", to);
 
@@ -50,12 +50,14 @@ export default async function handler(req, res) {
 
     console.log("Resend client initialized, sending email...", resend);
 
-    await resend.emails.send({
+    const send = await resend.emails.send({
       from,
       to,
       subject,
       html,
     });
+
+    console.log("Resend email send response:", send);
 
     console.log("RSVP email sent successfully for:", name);
 
