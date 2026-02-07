@@ -1,16 +1,40 @@
 import { useState } from "preact/hooks";
+import { z } from "zod";
 
 export default () => {
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+
+  const schema = z.object({
+    name: z.string().trim().min(1, "Ingresa tu nombre"),
+    phone: z
+      .string()
+      .trim()
+      .min(1, "Ingresa tu teléfono")
+      .regex(/^[0-9+()\-\s]{7,}$/, "Ingresa un teléfono válido"),
+  });
 
   const handleSendConfirmation = (event) => {
     //Stop a propagation
     event?.preventDefault();
+    setNameError("");
+    setPhoneError("");
     // envia email mediante el api rsvp.js usando fetch
     const url = "/api/rsvp";
     const data = {
       name,
+      phone,
     };
+
+    const validation = schema.safeParse(data);
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
+      setNameError(errors.name?.[0] ?? "");
+      setPhoneError(errors.phone?.[0] ?? "");
+      return;
+    }
 
     fetch(url, {
       method: "POST",
@@ -50,17 +74,38 @@ export default () => {
         class="text-2xl md:text-3xl font-thin flex space-x-4"
         onSubmit={handleSendConfirmation}
       >
-        <input
-          name="name"
-          type="text"
-          placeholder="Tu nombre"
-          class="px-4 py-2 rounded-lg border border-[var(--border-color-dark)]"
-          value={name}
-          onInput={(e) => setName((e.target as HTMLInputElement).value)}
-        />
+        {/* name and phone number */}
+        <div class="flex flex-col items-start">
+          <input
+            name="name"
+            type="text"
+            placeholder="Tu nombre"
+            class={`px-4 py-2 rounded-lg border ${nameError ? "border-red-500" : "border-[var(--border-color-dark)]"}`}
+            value={name}
+            onInput={(e) => {
+              setName((e.target as HTMLInputElement).value);
+              setNameError("");
+            }}
+          />
+          {nameError && <span class="text-red-500 text-sm">{nameError}</span>}
+        </div>
+        <div class="flex flex-col items-start">
+          <input
+            name="phone"
+            type="text"
+            placeholder="Teléfono"
+            class={`px-4 py-2 rounded-lg border ${phoneError ? "border-red-500" : "border-[var(--border-color-dark)]"}`}
+            value={phone}
+            onInput={(e) => {
+              setPhone((e.target as HTMLInputElement).value);
+              setPhoneError("");
+            }}
+          />
+          {phoneError && <span class="text-red-500 text-sm">{phoneError}</span>}
+        </div>
         <button
           type="submit"
-          class="hover:text-[var(--shade-900)] !bg-[var(--tone-300)] px-6 py-3 rounded-lg border border-[var(--border-color-dark)] transition"
+          class="hover:text-[var(--shade-900)] !bg-[var(--tone-300)] px-6 py-3 rounded-lg border border-[var(--border-color-dark)] transition max-h-[54px]"
         >
           Confirmar asistencia
         </button>

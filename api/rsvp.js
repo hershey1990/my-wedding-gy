@@ -17,10 +17,10 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-    const { name = "" } = body || {};
+    const { name = "", phone = "" } = body || {};
 
-    if (!name) {
-      return res.status(400).json({ error: "Missing name" });
+    if (!name || name.trim() === "" || !phone || phone.trim() === "") {
+      return res.status(400).json({ error: "Missing name or phone" });
     }
 
     console.log("Preparing to send RSVP email for:", name);
@@ -37,11 +37,12 @@ export default async function handler(req, res) {
         .json({ error: "Missing RESEND_API_KEY/RESEND_FROM/RESEND_TO" });
     }
 
-    const subject = `Nueva confirmación de asistencia - ${name}`;
+    const subject = `Nueva confirmación de asistencia - ${name}, Teléfono: ${phone}`;
 
     const html = `
       <h2>Nueva confirmación de asistencia</h2>
       <p><strong>Nombre:</strong> ${name}</p>
+      <p><strong>Teléfono:</strong> ${phone}</p>
     `;
 
     console.log("Sending email from:", from, "to:", to);
