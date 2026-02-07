@@ -59,7 +59,10 @@ export default async function handler(req, res) {
 
     console.log("Resend email send response:", send);
 
-    console.log("RSVP email sent successfully for:", name);
+    if (send.error) {
+      console.error("Failed to send RSVP email:", send);
+      return res.status(500).json({ error: "Failed to send email" });
+    }
 
     return res.status(200).json({ ok: true });
   } catch (error) {
