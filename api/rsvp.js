@@ -50,14 +50,14 @@ export default async function handler(req, res) {
 
     console.log("Resend client initialized, sending email...", resend);
 
-    await resend.emails.send({
+    const send = await resend.emails.send({
       from,
       to,
       subject,
       html,
     });
 
-    console.log("RSVP email sent successfully for:", name);
+    console.log("RSVP email sent successfully for:", send);
 
     return res.status(200).json({ ok: true });
   } catch (error) {
