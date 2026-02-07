@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.RESEND_FROM;
-    const to = "grlopez90@gmail.com"; //"yalisa9414@gmail.com";
+    const to = "yalisa9414@gmail.com";
 
     console.log("Email configuration - From:", from, "To:", to);
 
@@ -58,7 +58,10 @@ export default async function handler(req, res) {
       html,
     });
 
-    console.log("Email sent successfully:", send);
+    if (send.error)
+      return res
+        .status(500)
+        .json({ error: "Failed to send email", details: send.error });
 
     return res.status(200).json({ ok: true });
   } catch (error) {
