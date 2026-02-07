@@ -1,11 +1,13 @@
 import { useState } from "preact/hooks";
 
 export default () => {
+  const [name, setName] = useState("");
+
   const handleSendConfirmation = (event) => {
     //Stop a propagation
     event?.preventDefault();
     // envia email mediante el api rsvp.js usando fetch
-    const url = "https://my-wedding-gy.vercel.app/api/rsvp";
+    const url = "/api/rsvp";
     const data = {
       name,
     };
@@ -25,7 +27,6 @@ export default () => {
       })
       .then((data) => {
         alert("¡Gracias por confirmar tu asistencia!");
-        setName("");
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -34,8 +35,6 @@ export default () => {
         );
       });
   };
-
-  const [name, setName] = useState("");
 
   return (
     <section
