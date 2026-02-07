@@ -9,7 +9,7 @@ export default function Header() {
       setScrolled(window.scrollY > window.innerHeight);
 
       const offset = 140;
-      const sections = ["our-votes", "details", "gifts", "rsvp"];
+      const sections = ["our-votes", "details", "gifts", "rsvp", "dress-code"];
       let current = "home";
 
       for (const id of sections) {
@@ -83,6 +83,15 @@ export default function Header() {
               className={getLinkClass("rsvp")}
             >
               Confirmar asistencia
+            </a>
+          </li>
+          <li>
+            <a
+              href="#dress-code"
+              onClick={() => setActiveSection("dress-code")}
+              className={getLinkClass("dress-code")}
+            >
+              Código de vestimenta
             </a>
           </li>
         </ul>
