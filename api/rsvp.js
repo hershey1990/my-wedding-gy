@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export default async function handler(req, res) {
   console.log("RSVP request method:", req.method);
@@ -25,16 +25,16 @@ export default async function handler(req, res) {
 
     console.log("Preparing to send RSVP email for:", name);
 
-    const from = process.env.GMAIL_USER;
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.RESEND_FROM;
     const to = "yalisa9414@gmail.com";
-    const pass = process.env.GMAIL_APP_PASSWORD;
 
-    console.log("Email configuration - From:", from, "To:", to, "pass", pass);
+    console.log("Email configuration - From:", from, "To:", to);
 
-    if (!from || !to || !pass) {
+    if (!apiKey || !from || !to) {
       return res
         .status(500)
-        .json({ error: "Missing OUTLOOK_USER/OUTLOOK_APP_PASSWORD" });
+        .json({ error: "Missing RESEND_API_KEY/RESEND_FROM/RESEND_TO" });
     }
 
     const subject = `Nueva confirmación de asistencia - ${name}`;
@@ -46,19 +46,9 @@ export default async function handler(req, res) {
 
     console.log("Sending email from:", from, "to:", to);
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass,
-      },
-    });
+    const resend = new Resend(apiKey);
 
-    console.log("Transporter created, sending mail...");
-
-    await transporter.sendMail({
+    await resend.emails.send({
       from,
       to,
       subject,
