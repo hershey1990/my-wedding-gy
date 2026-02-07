@@ -25,9 +25,9 @@ export default async function handler(req, res) {
 
     console.log("Preparing to send RSVP email for:", name);
 
-    const from = process.env.OUTLOOK_USER;
+    const from = process.env.GMAIL_USER;
     const to = "yalisa9414@gmail.com";
-    const pass = process.env.OUTLOOK_APP_PASSWORD;
+    const pass = process.env.GMAIL_APP_PASSWORD;
 
     console.log("Email configuration - From:", from, "To:", to, "pass", pass);
 
@@ -47,15 +47,12 @@ export default async function handler(req, res) {
     console.log("Sending email from:", from, "to:", to);
 
     const transporter = nodemailer.createTransport({
-      host: "smtp-mail.outlook.com",
+      host: "smtp.office365.com",
       port: 587,
       secure: false,
       auth: {
-        user: process.env.OUTLOOK_USER,
+        user: process.env.GMAIL_USER,
         pass,
-      },
-      tls: {
-        ciphers: "SSLv3",
       },
     });
 
