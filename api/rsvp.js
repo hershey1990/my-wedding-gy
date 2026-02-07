@@ -1,5 +1,4 @@
 import { Resend } from "resend";
-import { send } from "vite";
 
 export default async function handler(req, res) {
   console.log("RSVP request method:", req.method);
@@ -51,17 +50,14 @@ export default async function handler(req, res) {
 
     console.log("Resend client initialized, sending email...", resend);
 
-    const send = await resend.emails.send({
+    await resend.emails.send({
       from,
       to,
       subject,
       html,
     });
 
-    if (send.error)
-      return res
-        .status(500)
-        .json({ error: "Failed to send email", details: send.error });
+    console.log("RSVP email sent successfully for:", name);
 
     return res.status(200).json({ ok: true });
   } catch (error) {
