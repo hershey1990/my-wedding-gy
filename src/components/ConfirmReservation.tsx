@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
 import { z } from "zod";
+import ConfirmationModal from "./ConfirmationModal";
 
 export default () => {
   const [name, setName] = useState("");
@@ -114,6 +115,7 @@ export default () => {
       <div class="mt-6 text-sm md:text-base">
         <p>¿Dudas o preguntas? Escríbenos</p>
       </div>
+      <ConfirmationModal />
     </section>
   );
 };
