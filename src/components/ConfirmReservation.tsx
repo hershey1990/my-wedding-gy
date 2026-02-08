@@ -71,7 +71,7 @@ export default () => {
       </h2>
       {/* Confirmar asistencia */}
       <form
-        class="text-2xl md:text-3xl font-thin flex space-x-4"
+        class="text-2xl md:text-3xl font-thin flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 w-full items-center w-full justify-center"
         onSubmit={handleSendConfirmation}
       >
         {/* name and phone number */}

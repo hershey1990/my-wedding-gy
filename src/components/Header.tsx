@@ -34,12 +34,12 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full fixed top-0 pt-10 left-0 z-20 transition-colors  ${
+      className={`w-full fixed top-0 md:pt-10 pt-4 left-0 z-20 transition-colors  ${
         scrolled ? "bg-white/70 backdrop-blur" : "bg-transparent"
       }`}
     >
       <nav className="w-full h-full flex items-center justify-center relative">
-        <ul className="list-none menu text-center [&>li]:inline-block [&>li]:mx-4">
+        <ul className="list-none menu text-center [&>li]:inline-block [&>li]:mx-4 ">
           <li>
             <a
               href="#home"

@@ -63,7 +63,7 @@ h6 {
 
 .menu,
 .menu li {
-  @apply mb-6;
+  @apply md:mb-6 mb-0;
   a {
     font-family: var(--font-base);
     color: var(--color-font-primary);
