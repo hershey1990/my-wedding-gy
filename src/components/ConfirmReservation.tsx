@@ -7,6 +7,7 @@ export default () => {
   const [phone, setPhone] = useState("");
   const [nameError, setNameError] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const schema = z.object({
     name: z.string().trim().min(1, "Ingresa tu nombre"),
@@ -51,7 +52,8 @@ export default () => {
         return response.json();
       })
       .then((data) => {
-        alert("¡Gracias por confirmar tu asistencia!");
+        // Open the ConfirmationModal
+        setShowModal(true);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -115,7 +117,7 @@ export default () => {
       <div class="mt-6 text-sm md:text-base">
         <p>¿Dudas o preguntas? Escríbenos</p>
       </div>
-      <ConfirmationModal />
+      <ConfirmationModal show={showModal} onClose={() => setShowModal(false)} />
     </section>
   );
 };

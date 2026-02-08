@@ -1,8 +1,13 @@
-export default () => {
+interface ConfirmationModalProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+export default ({ show, onClose }: ConfirmationModalProps) => {
   return (
     //  modal para confirmar que confirmaste invitacion
     <div
-      class="fixed inset-0 bg-[rgba(0,0,0,0.8)] bg-opacity-80 flex items-center justify-center z-50"
+      class={`fixed inset-0 bg-[rgba(0,0,0,0.8)] bg-opacity-80 flex items-center justify-center z-50 ${show ? "block" : "hidden"}`}
       id="confirmation-modal"
     >
       <div class="bg-white rounded-lg p-6 w-11/12 max-w-md">
