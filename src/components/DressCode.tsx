@@ -8,7 +8,7 @@ export default () => {
     >
       <img
         src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/dresscode.png"
-        class={"md:h-[400px] h-auto"}
+        class={"md:h-[400px] h-[250px] object-contain"}
         alt=""
       />
       <div>
