@@ -1,0 +1,44 @@
+<section class="w-full md:h-screen bg-(--border-color) flex flex-col items-center justify-center text-center p-4 md:pt-[250px] py-20">
+  <p>Cuenta atras</p>
+  <h2 class="text-3xl md:text-4xl font-heading font-thin mb-6">Para el gran día</h2>
+  <div class="text-2xl md:text-3xl font-thin flex flex-wrap justify-center gap-4">
+    <div class="border border-[var(--border-color-dark)] rounded-lg px-4 py-3">
+      <span id="days" class="font-bold text-[var(--shade-900)]">0</span>
+      <span class="ml-2">Días</span>
+    </div>
+    <div class="border border-[var(--border-color-dark)] rounded-lg px-4 py-3">
+      <span id="hours" class="font-bold text-[var(--shade-900)]">0</span>
+      <span class="ml-2">Horas</span>
+    </div>
+    <div class="border border-[var(--border-color-dark)] rounded-lg px-4 py-3">
+      <span id="minutes" class="font-bold text-[var(--shade-900)]">0</span>
+      <span class="ml-2">Minutos</span>
+    </div>
+    <div class="border border-[var(--border-color-dark)] rounded-lg px-4 py-3">
+      <span id="seconds" class="font-bold text-[var(--shade-900)]">0</span>
+      <span class="ml-2">Segundos</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const WEDDING_DATE = new Date("2026-03-01T00:00:00");
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateTimer() {
+      const diff = Math.max(WEDDING_DATE.getTime() - Date.now(), 0);
+      const totalSeconds = Math.floor(diff / 1000);
+      daysEl.textContent = Math.floor(totalSeconds / 86400);
+      hoursEl.textContent = Math.floor((totalSeconds % 86400) / 3600);
+      minutesEl.textContent = Math.floor((totalSeconds % 3600) / 60);
+      secondsEl.textContent = totalSeconds % 60;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  })();
+</script>

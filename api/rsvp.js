@@ -1,7 +1,16 @@
 import { Resend } from "resend";
+import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().trim().min(1, "Ingresa tu nombre"),
+  phone: z
+    .string()
+    .trim()
+    .min(1, "Ingresa tu teléfono")
+    .regex(/^[0-9+()\-\s]{7,}$/, "Ingresa un teléfono válido"),
+});
 
 export default async function handler(req, res) {
-  console.log("RSVP request method:", req.method);
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -13,28 +22,25 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  console.log("RSVP request body:", req.body);
-
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-    const { name = "", phone = "" } = body || {};
 
-    if (!name || name.trim() === "" || !phone || phone.trim() === "") {
-      return res.status(400).json({ error: "Missing name or phone" });
+    const validation = schema.safeParse(body);
+    if (!validation.success) {
+      const errors = validation.error.flatten().fieldErrors;
+      return res
+        .status(400)
+        .json({ error: errors.name?.[0] || errors.phone?.[0] || "Datos inválidos" });
     }
 
-    console.log("Preparing to send RSVP email for:", name);
+    const { name, phone } = validation.data;
 
     const apiKey = process.env.RESEND_API_KEY;
     const from = process.env.RESEND_FROM;
-    const to = "grlopez90@gmail.com"; //"yalisa9414@gmail.com";
+    const to = "grlopez90@gmail.com";
 
-    console.log("Email configuration - From:", from, "To:", to);
-
-    if (!apiKey || !from || !to) {
-      return res
-        .status(500)
-        .json({ error: "Missing RESEND_API_KEY/RESEND_FROM/RESEND_TO" });
+    if (!apiKey || !from) {
+      return res.status(500).json({ error: "Missing RESEND_API_KEY/RESEND_FROM" });
     }
 
     const subject = `Nueva confirmación de asistencia - ${name}, Teléfono: ${phone}`;
@@ -45,20 +51,8 @@ export default async function handler(req, res) {
       <p><strong>Teléfono:</strong> ${phone}</p>
     `;
 
-    console.log("Sending email from:", from, "to:", to);
-
     const resend = new Resend(apiKey);
-
-    console.log("Resend client initialized, sending email...", resend);
-
-    const send = await resend.emails.send({
-      from,
-      to,
-      subject,
-      html,
-    });
-
-    console.log("Resend email send response:", send);
+    const send = await resend.emails.send({ from, to, subject, html });
 
     if (send.error) {
       console.error("Failed to send RSVP email:", send);

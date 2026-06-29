@@ -1,0 +1,50 @@
+<header id="site-header" class="w-full fixed top-0 md:pt-10 pt-4 left-0 z-20 transition-all duration-300 bg-transparent">
+  <nav class="w-full h-full flex items-center justify-center relative">
+    <ul class="list-none menu text-center [&>li]:inline-block [&>li]:mx-4">
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#our-votes">Nuestra Historia</a></li>
+      <li><a href="#details">Detalles</a></li>
+      <li><a href="#gifts">Regalos</a></li>
+      <li><a href="#rsvp">Confirmar asistencia</a></li>
+      <li><a href="#dress-code">Código de vestimenta</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  #site-header.scrolled {
+    background-color: rgb(255 255 255 / 0.7);
+    backdrop-filter: blur(4px);
+  }
+  #site-header nav a.active {
+    color: var(--shade-900);
+  }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const links = document.querySelectorAll('#site-header nav a');
+
+  const handleScroll = () => {
+    const scrolled = window.scrollY > window.innerHeight;
+    header.classList.toggle('scrolled', scrolled);
+
+    const offset = 140;
+    const sections = ['our-votes', 'details', 'gifts', 'rsvp', 'dress-code'];
+    let current = 'home';
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY + offset >= top) {
+        current = id;
+      }
+    }
+
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
+  };
+
+  handleScroll();
+  window.addEventListener('scroll', handleScroll, { passive: true });
+</script>

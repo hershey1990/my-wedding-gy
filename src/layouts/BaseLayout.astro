@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" />
+  <link rel="icon" type="image/png" href="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/185766.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Boda de Gershell y Yalaniz</title>
+</head>
+<body class="m-0">
+  <audio id="bg-audio" preload="auto" autoplay loop playsinline src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/elena_y_david-BF61jgoc.mp3"></audio>
+  <slot />
+</body>
+</html>
+
+<script>
+  const audio = document.getElementById('bg-audio');
+  if (audio) {
+    audio.muted = false;
+    audio.play().catch(() => {});
+  }
+</script>

@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
-@import "leaflet/dist/leaflet.css";
-@import "./base-fonts.css";
-
-/* Custom styles can be added below */
+@import "../base-fonts.css";
 
 html {
   scroll-behavior: smooth;

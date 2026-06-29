@@ -1,0 +1,99 @@
+<section id="rsvp" class="w-full h-[600px] bg-[var(--color-primary)] flex flex-col items-center justify-center text-center p-4 gap-4">
+  <h2 class="text-3xl md:text-4xl font-heading font-thin mb-4">
+    ¡Esperamos nos acompañes en nuestro gran día!
+  </h2>
+
+  <form id="rsvp-form" class="text-2xl md:text-3xl font-thin flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 w-full items-center justify-center">
+    <div class="flex flex-col items-start">
+      <input id="rsvp-name" type="text" placeholder="Tu nombre" required class="px-4 py-2 rounded-lg border border-[var(--border-color-dark)]" />
+      <span id="name-error" class="text-red-500 text-sm hidden"></span>
+    </div>
+    <div class="flex flex-col items-start">
+      <input id="rsvp-phone" type="text" placeholder="Teléfono" required pattern="[0-9+()\-\s]{7,}" class="px-4 py-2 rounded-lg border border-[var(--border-color-dark)]" />
+      <span id="phone-error" class="text-red-500 text-sm hidden"></span>
+    </div>
+    <button type="submit" class="hover:text-[var(--shade-900)] !bg-[var(--tone-300)] px-6 py-3 rounded-lg border border-[var(--border-color-dark)] transition max-h-[54px] cursor-pointer">
+      Confirmar asistencia
+    </button>
+  </form>
+
+  <div class="mt-6 text-sm md:text-base">
+    <p>¿Dudas o preguntas? Escríbenos</p>
+  </div>
+
+  <div id="confirmation-modal" class="fixed inset-0 bg-[rgba(0,0,0,0.8)] flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg p-6 w-11/12 max-w-md text-center">
+      <h2 class="text-2xl font-semibold mb-4">Confirmación de Asistencia</h2>
+      <p class="mb-6">Gracias por confirmar tu asistencia. ¡Estamos emocionados de celebrar juntos!</p>
+      <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/85d6bd3a1c798a6daaeebbc257975df8-removebg-preview.png" alt="" class="mx-auto" />
+      <button id="close-modal" class="bg-[var(--tone-300)] hover:bg-[var(--tone-400)] text-[var(--shade-900)] px-4 py-2 rounded-lg transition mt-6 cursor-pointer">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const form = document.getElementById('rsvp-form');
+    const modal = document.getElementById('confirmation-modal');
+    const nameInput = document.getElementById('rsvp-name');
+    const phoneInput = document.getElementById('rsvp-phone');
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+
+    function resetErrors() {
+      nameError.classList.add('hidden');
+      phoneError.classList.add('hidden');
+      nameInput.classList.remove('border-red-500');
+      phoneInput.classList.remove('border-red-500');
+    }
+
+    function setError(el, errorEl, msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.remove('hidden');
+      el.classList.add('border-red-500');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resetErrors();
+
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
+      let hasError = false;
+
+      if (!name) {
+        setError(nameInput, nameError, 'Ingresa tu nombre');
+        hasError = true;
+      }
+      if (!phone || phone.length < 7) {
+        setError(phoneInput, phoneError, 'Ingresa un teléfono válido');
+        hasError = true;
+      }
+      if (hasError) return;
+
+      try {
+        const response = await fetch('/api/rsvp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone }),
+        });
+
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.error || 'Error al enviar confirmación');
+        }
+
+        modal.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        alert(error.message || 'Hubo un problema al enviar tu confirmación. Por favor, inténtalo de nuevo.');
+      }
+    });
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+  })();
+</script>
