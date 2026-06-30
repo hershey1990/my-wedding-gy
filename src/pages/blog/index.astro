@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../sections/Header.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -8,7 +9,8 @@ const posts = (await getCollection('blog'))
 
 <BaseLayout>
   <main class="min-h-screen bg-white">
-    <section class="max-w-4xl mx-auto px-4 py-20">
+    <Header />
+    <section class="max-w-4xl mx-auto px-4 pt-32 pb-20">
       <h1 class="text-4xl md:text-5xl font-heading text-center mb-2">Nuestro Blog</h1>
       <p class="text-center text-lg mb-12 text-gray-600">Los momentos que compartimos juntos</p>
 
