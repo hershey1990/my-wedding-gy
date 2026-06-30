@@ -3,21 +3,70 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../sections/Header.astro';
 import Hero from '../sections/Hero.astro';
 import OurStory from '../sections/OurStory.astro';
-import Timer from '../sections/Timer.astro';
 import Location from '../sections/Location.astro';
 import Gifts from '../sections/Gifts.astro';
-import RSVP from '../sections/RSVP.astro';
 import DressCode from '../sections/DressCode.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 <BaseLayout>
   <main id="home" class="min-h-screen relative bg-white">
     <Header />
     <Hero />
     <OurStory />
-    <Timer />
+    <div class="h-16"></div>
     <Location />
     <Gifts />
-    <RSVP />
     <DressCode />
+
+    <section id="blog" class="w-full py-20 px-4 bg-[var(--color-primary)]">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-heading mb-2">Nuestras Aventuras</h2>
+        <p class="text-gray-600 mb-12">Los momentos que hemos vivido juntos</p>
+
+        <div class="grid gap-6 md:grid-cols-3 text-left">
+          {
+            posts.map((post) => (
+              <a
+                href={`/blog/${post.id}`}
+                class="group block rounded-xl overflow-hidden bg-white hover:shadow-lg transition-shadow"
+              >
+                {
+                  post.data.image && (
+                    <img
+                      src={post.data.image}
+                      alt=""
+                      class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  )
+                }
+                <div class="p-4">
+                  <time class="text-xs text-gray-500">
+                    {new Intl.DateTimeFormat('es', { dateStyle: 'long' }).format(post.data.date)}
+                  </time>
+                  <h3 class="text-lg font-heading mt-1 group-hover:text-[var(--tone-800)] transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-gray-600 mt-1 text-sm line-clamp-2">
+                    {post.data.description}
+                  </p>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+
+        <a
+          href="/blog"
+          class="inline-block mt-10 px-6 py-3 rounded-lg bg-[var(--tone-800)] text-white hover:bg-[var(--shade-800)] transition-colors"
+        >
+          Ver todas las aventuras
+        </a>
+      </div>
+    </section>
   </main>
 </BaseLayout>
