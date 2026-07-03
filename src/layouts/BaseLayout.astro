@@ -22,7 +22,12 @@ import '../styles/global.css';
 <script>
   const audio = document.getElementById('bg-audio');
   if (audio) {
-    audio.muted = false;
-    audio.play().catch(() => {});
+    if (window.location.pathname.startsWith('/blog')) {
+      audio.pause();
+      audio.currentTime = 0;
+    } else {
+      audio.muted = false;
+      audio.play().catch(() => {});
+    }
   }
 </script>
