@@ -1,10 +1,24 @@
 ---
-title: "Nuestra aventura por Argentina"
-date: 2026-03-20
-description: "Recorriendo Buenos Aires, Mendoza y las cataratas del Iguazú — nuestro primer gran viaje como casados."
+title: "Nuestra aventura por Argentina — Paso a paso"
+date: 2026-07-03
+description: "El viaje más largo de nuestras vidas: desde Nicaragua hasta Argentina, contado paso a paso."
 image: "https://images.unsplash.com/photo-1589904398906-6e8c5c6e2b5f?w=800"
-tags: ["viajes", "argentina", "luna de miel"]
+tags: ["viajes", "argentina", "luna de miel", "semana santa"]
 ---
+
+## Paso 1: La salida de Nicaragua — una odisea
+
+Elegimos Semana Santa porque coincidía con las vacaciones de mi esposa y yo podía tomar algunos días. Pero teníamos que salir el último viernes antes de Semana Santa y corríamos el riesgo de perder el vuelo.
+
+Yo tenía que salir antes del traspaso en el trabajo. Salí bien completo, pero mi esposa estaba molesta por el estrés de la hora. Finalmente logramos salir de Nicaragua y poner rumbo a El Salvador.
+
+## Paso 2: El Salvador → Colombia — en la cabina con los pilotos
+
+Llegamos a El Salvador y abordamos otro vuelo rumbo a Colombia. Por falta de espacio, terminamos en la cabina con los pilotos. Una experiencia increíble que jamás olvidaremos.
+
+![En la cabina](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/en%20la%20cabina-uerPg5YXQaGzwQFPpiFgAABMsiXbiZ)
+
+*Próximamente: llegada a Colombia y el resto de la travesía...*
 
 ## Buenos Aires
 
