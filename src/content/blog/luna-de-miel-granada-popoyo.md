@@ -33,3 +33,9 @@ Llegamos sanos y salvos al **Hostel Sunset Villas**, un lugar perfecto para rela
 ![Casper, nuestro guardian y amigo](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/casper%20y%20yo-JiZCfShvW0MPhwHMsoI4hRNhGp5Rbo)
 
 En el camino conocimos a **Casper**, un perrito que se nos apareció y nos siguió durante toda la boda. Desde ese día no se separó de nosotros — se volvió nuestro guardian y amigo fiel, como si supiera que ese día comenzaba algo especial.
+
+---
+
+*Uff mi esposa sí que es sexi*
+
+![Mi sexy wife](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/my%20sexy%20wife-BSrgJ4eN1oE74qCvUzim2kXJXzW4Ep)
