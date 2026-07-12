@@ -1,12 +1,14 @@
 ---
 const isBoda = Astro.url.pathname.startsWith('/boda');
+const { dark = false } = Astro.props as { dark?: boolean };
 ---
 
-<header id="site-header" class="w-full fixed top-0 md:pt-10 pt-4 left-0 z-20 transition-all duration-300 bg-transparent">
+<header id="site-header" class={`w-full fixed top-0 md:pt-10 pt-4 left-0 z-20 transition-all duration-300 bg-transparent ${dark ? 'header-dark' : ''}`}>
   <nav class="w-full h-full flex items-center justify-center relative">
     <ul class="list-none menu text-center [&>li]:inline-block [&>li]:mx-2 md:[&>li]:mx-4">
       <li><a href="/">Inicio</a></li>
       <li><a href="/blog">Blog</a></li>
+      <li><a href="/galeria">Galería</a></li>
       <li><a href="/boda">Nuestra Boda</a></li>
       {
         isBoda && (
@@ -28,6 +30,20 @@ const isBoda = Astro.url.pathname.startsWith('/boda');
     backdrop-filter: blur(4px);
   }
   #site-header nav a.active {
+    color: var(--shade-900);
+  }
+
+  /* White menu text for dark backgrounds (homepage slideshow) */
+  #site-header.header-dark nav a {
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  /* Revert to dark text when header becomes solid */
+  #site-header.header-dark.scrolled nav a {
+    color: var(--color-font-primary);
+    text-shadow: none;
+  }
+  #site-header.header-dark.scrolled nav a.active {
     color: var(--shade-900);
   }
 </style>

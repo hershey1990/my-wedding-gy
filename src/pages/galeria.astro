@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../sections/Header.astro';
+
+const PHOTO_COUNT = 200;
+const photos = Array.from({ length: PHOTO_COUNT }, (_, i) => {
+  const num = String(i + 1).padStart(3, '0');
+  return {
+    full: `/gallery/${num}.webp`,
+    thumb: `/gallery/${num}-thumb.webp`,
+    index: i,
+  };
+});
+---
+
+<BaseLayout>
+  <main class="min-h-screen bg-white">
+    <Header />
+
+    <section class="max-w-7xl mx-auto px-4 pt-32 pb-20">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-heading mb-2">Galería de Nuestra Boda</h1>
+        <p class="text-gray-600 text-lg">1 de marzo de 2026 &middot; Esquipulas</p>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div id="gallery-grid" class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        {photos.map((photo) => (
+          <button
+            type="button"
+            class="gallery-item block w-full overflow-hidden rounded-lg cursor-pointer group break-inside-avoid"
+            data-full={photo.full}
+          >
+            <img
+              src={photo.thumb}
+              alt={`Foto de boda ${photo.index + 1}`}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto rounded-lg group-hover:scale-105 transition-transform duration-300"
+            />
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex-col items-center justify-center">
+      <button id="lightbox-close" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition z-10 cursor-pointer" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-gray-300 transition z-10 cursor-pointer" aria-label="Anterior">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-gray-300 transition z-10 cursor-pointer" aria-label="Siguiente">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div id="lightbox-counter" class="absolute top-4 left-4 text-white/70 text-sm z-10"></div>
+      <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg" />
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  let currentIndex = 0;
+  const photoList = Array.from(items).map(el => el.dataset.full);
+
+  function showPhoto(index) {
+    if (index < 0) index = photoList.length - 1;
+    if (index >= photoList.length) index = 0;
+    currentIndex = index;
+    lightboxImg.src = photoList[index];
+    lightboxCounter.textContent = `${index + 1} / ${photoList.length}`;
+  }
+
+  function openLightbox(index) {
+    showPhoto(index);
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => openLightbox(i));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', () => showPhoto(currentIndex - 1));
+  nextBtn.addEventListener('click', () => showPhoto(currentIndex + 1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPhoto(currentIndex - 1);
+    if (e.key === 'ArrowRight') showPhoto(currentIndex + 1);
+  });
+</script>
