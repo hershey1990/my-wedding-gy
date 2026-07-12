@@ -51,3 +51,31 @@ En el mercado probé el famoso choripán. Meh. La verdad, la comida argentina no
   <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/caminito" alt="Caminito" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
   <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/asado" alt="Asado" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
 </div>
+
+Para un nica acostumbrado a desayunar pesado, los desayunos argentinos son pésimos. Un pan y un café horrible. Y hablando de café: no saben tomar café. En todos lados es horrible.
+
+Excepto en **Toki Moments**, un café de familia japonesa. El encargado es un barista profesional y tienen verdadero café de especialidad con varios métodos de infusión. Probé la Aeropress, que nunca la había probado, y me encantó.
+
+[Toki Moments](https://www.instagram.com/toki.moment/?hl=en)
+
+También fuimos a la galería más famosa de Argentina. Y una noche fuimos a probar la Fugazzeta, la famosa pizza argentina. La verdad, meh. Fuimos a Güerrín, estaba llenísimo, hicimos fila pero no tardamos. Y repito: fue meh.
+
+Fuimos al Puente de la Mujer, un sitio hermoso. Hice la broma de que era El Salvador Allende del primer mundo. Pero cuando intentamos comprar dos cervezas en happy hour nos dimos cuenta de que era El Salvador Allende de Dubái: carísimo.
+
+![Puente de la Mujer](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/puente%20de%20la%20mujer)
+
+Por la mañana fuimos a la biblioteca — bellísima, parece de película. Aunque no pudimos comer porque la mesera era lentísima. La verdad, Argentina y la comida no van bien.
+
+![Biblioteca](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/biblioteca)
+
+Hicimos vida de casados en Buenos Aires: íbamos de compras, salíamos a caminar y mucho. Conocimos el Estadio Monumental — la Bombonera es genial, pero el de River Plate es otro mundo.
+
+![Monumental](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/monumental)
+
+También conocimos la gran flor metálica y el Barrio Chino. Todo genial.
+
+## Paso 6: El regreso a Nicaragua
+
+Y al final emprendimos nuestro viaje de regreso. Cansado, pero vi *F1* (la película de Brad Pitt) en el vuelo — buena, la verdad jaja. Pero menos glamour: solo queríamos volver a casa y descansar.
+
+Fue un gran viaje. Argentina nos recibió con los brazos abiertos, nos dio experiencias inolvidables, y aunque la comida no fue lo nuestro, nos llevamos el corazón lleno. 🇦🇷❤️🇳🇮

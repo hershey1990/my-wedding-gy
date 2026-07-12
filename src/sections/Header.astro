@@ -1,12 +1,23 @@
+---
+const isBoda = Astro.url.pathname.startsWith('/boda');
+---
+
 <header id="site-header" class="w-full fixed top-0 md:pt-10 pt-4 left-0 z-20 transition-all duration-300 bg-transparent">
   <nav class="w-full h-full flex items-center justify-center relative">
     <ul class="list-none menu text-center [&>li]:inline-block [&>li]:mx-2 md:[&>li]:mx-4">
       <li><a href="/">Inicio</a></li>
-      <li><a href="/#our-votes">Nuestra Historia</a></li>
-      <li><a href="/#details">Detalles</a></li>
       <li><a href="/blog">Blog</a></li>
-      <li><a href="/#gifts">Regalos</a></li>
-      <li><a href="/#dress-code">Código de vestimenta</a></li>
+      <li><a href="/boda">Nuestra Boda</a></li>
+      {
+        isBoda && (
+          <>
+            <li><a href="/boda#our-votes">Nuestra Historia</a></li>
+            <li><a href="/boda#details">Detalles</a></li>
+            <li><a href="/boda#gifts">Regalos</a></li>
+            <li><a href="/boda#dress-code">Vestimenta</a></li>
+          </>
+        )
+      }
     </ul>
   </nav>
 </header>
