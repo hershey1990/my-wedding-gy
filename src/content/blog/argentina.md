@@ -2,7 +2,7 @@
 title: "Nuestra aventura por Argentina — Paso a paso"
 date: 2026-07-03
 description: "El viaje más largo de nuestras vidas: desde Nicaragua hasta Argentina, contado paso a paso."
-image: "https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/teatro%20argentina"
+image: "/images/argentina/teatro.webp"
 tags: ["viajes", "argentina", "luna de miel", "semana santa"]
 ---
 
@@ -16,7 +16,7 @@ Yo tenía que salir antes del traspaso en el trabajo. Salí bien completo, pero 
 
 Llegamos a El Salvador y abordamos otro vuelo rumbo a Colombia. Por falta de espacio, terminamos en la cabina con los pilotos. Una experiencia increíble que jamás olvidaremos.
 
-![En la cabina](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/en%20la%20cabina-uerPg5YXQaGzwQFPpiFgAABMsiXbiZ)
+![En la cabina](/images/argentina/cabina.webp)
 
 ## Paso 3: Escala en Colombia — Juan Valdez y una que otra grosería
 
@@ -30,7 +30,7 @@ Esperamos horas hasta que por fin abordamos el vuelo rumbo a Argentina. Cinco ho
 
 Después de cinco horas, tarán... llegamos.
 
-![Obelisco de Buenos Aires](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/ol%20obelisko%20buenos%20aires-zmcwYXCeowNI8JWJsY3tsWz81Y650y)
+![Obelisco de Buenos Aires](/images/argentina/obelisco.webp)
 
 Del aeropuerto nos fuimos directo al apartamento. Tomamos Uber — primera vez que usaba esa app — y en el camino vi a lo lejos las grandes favelas de Buenos Aires. Luego entramos a la ciudad y es hermosa, elegante. Europa en Sudamérica.
 
@@ -38,7 +38,7 @@ Teníamos hambre. Como yo nunca había salido del país, mi esposa me recomendó
 
 Los siguientes días fueron largas caminatas a pie por Buenos Aires.
 
-![En KFC](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/en%20kfc)
+![En KFC](/images/argentina/kfc.webp)
 
 ## Paso 5: La Boca, Caminito y el asado
 
@@ -47,9 +47,9 @@ Durante la semana visitamos La Boca, el barrio homónimo. Maradona y Messi está
 En el mercado probé el famoso choripán. Meh. La verdad, la comida argentina no es lo mío. Pero la cerveza más famosa de ellos, Quilmes, esa sí me encantó.
 
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0;">
-  <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/la%20bombonera" alt="La Bombonera" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-  <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/caminito" alt="Caminito" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-  <img src="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/asado" alt="Asado" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+  <img src="/images/argentina/bombonera.webp" alt="La Bombonera" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+  <img src="/images/argentina/caminito.webp" alt="Caminito" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+  <img src="/images/argentina/asado.webp" alt="Asado" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
 </div>
 
 Para un nica acostumbrado a desayunar pesado, los desayunos argentinos son pésimos. Un pan y un café horrible. Y hablando de café: no saben tomar café. En todos lados es horrible.
@@ -62,15 +62,15 @@ También fuimos a la galería más famosa de Argentina. Y una noche fuimos a pro
 
 Fuimos al Puente de la Mujer, un sitio hermoso. Hice la broma de que era El Salvador Allende del primer mundo. Pero cuando intentamos comprar dos cervezas en happy hour nos dimos cuenta de que era El Salvador Allende de Dubái: carísimo.
 
-![Puente de la Mujer](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/puente%20de%20la%20mujer)
+![Puente de la Mujer](/images/argentina/puente.webp)
 
 Por la mañana fuimos a la biblioteca — bellísima, parece de película. Aunque no pudimos comer porque la mesera era lentísima. La verdad, Argentina y la comida no van bien.
 
-![Biblioteca](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/biblioteca)
+![Biblioteca](/images/argentina/biblioteca.webp)
 
 Hicimos vida de casados en Buenos Aires: íbamos de compras, salíamos a caminar y mucho. Conocimos el Estadio Monumental — la Bombonera es genial, pero el de River Plate es otro mundo.
 
-![Monumental](https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/monumental)
+![Monumental](/images/argentina/monumental.webp)
 
 También conocimos la gran flor metálica y el Barrio Chino. Todo genial.
 
