@@ -79,10 +79,6 @@
     const isBirthdayDay = today.getMonth() === 6 && today.getDate() === 16; // 6 = julio
     if (!isBirthdayDay) return;
 
-    // Solo una vez por día (localStorage)
-    const STORAGE_KEY = 'birthday-modal-shown-2026-07-16';
-    if (localStorage.getItem(STORAGE_KEY) === '1') return;
-
     const closeModal = () => {
       card.classList.remove('scale-100', 'opacity-100');
       card.classList.add('scale-95', 'opacity-0');
@@ -93,7 +89,6 @@
         modal.setAttribute('aria-hidden', 'true');
         stopConfetti();
       }, 400);
-      localStorage.setItem(STORAGE_KEY, '1');
     };
 
     closeBtn.addEventListener('click', closeModal);
