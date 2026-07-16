@@ -1,0 +1,180 @@
+---
+// Modal de cumpleaños que se muestra solo el 16 de julio de 2026
+// con confeti cayendo al cargar la página
+---
+<div
+  id="birthday-modal"
+  class="fixed inset-0 z-[9999] hidden items-center justify-center p-4"
+  aria-hidden="true"
+  role="dialog"
+  aria-labelledby="birthday-title"
+>
+  <!-- Backdrop -->
+  <div
+    id="birthday-backdrop"
+    class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+  ></div>
+
+  <!-- Confetti layer -->
+  <div id="confetti-layer" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+
+  <!-- Card -->
+  <div
+    class="relative z-10 max-w-md w-full bg-gradient-to-br from-pink-50 via-white to-rose-50 rounded-3xl shadow-2xl p-8 text-center transform scale-95 opacity-0 transition-all duration-500"
+    id="birthday-card"
+  >
+    <button
+      type="button"
+      id="birthday-close"
+      class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-gray-600 hover:text-gray-900 flex items-center justify-center shadow transition-colors"
+      aria-label="Cerrar"
+    >
+      ✕
+    </button>
+
+    <div class="text-5xl mb-2">🎉</div>
+
+    <div class="mx-auto w-40 h-52 rounded-2xl overflow-hidden border-4 border-pink-300 shadow-lg mb-4">
+      <img
+        src="/images/yalaniz/feliz-cumple.webp"
+        alt="Yalaniz"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <h2
+      id="birthday-title"
+      class="text-2xl md:text-3xl font-heading font-bold text-pink-600 mb-2"
+    >
+      ¡Feliz cumpleaños, mi amor! 🎂
+    </h2>
+    <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+      Te amo, mi bebecita
+    </p>
+
+    <button
+      type="button"
+      id="birthday-cta"
+      class="mt-6 px-6 py-2.5 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-medium shadow-md transition-colors"
+    >
+      Gracias, mi vida 🥰
+    </button>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const modal = document.getElementById('birthday-modal');
+    const card = document.getElementById('birthday-card');
+    const backdrop = document.getElementById('birthday-backdrop');
+    const closeBtn = document.getElementById('birthday-close');
+    const ctaBtn = document.getElementById('birthday-cta');
+    const confettiLayer = document.getElementById('confetti-layer');
+
+    if (!modal || !card || !backdrop || !closeBtn || !ctaBtn || !confettiLayer) return;
+
+    // Solo mostrar el 16 de julio (cualquier año) — hora local del visitante
+    const today = new Date();
+    const isBirthdayDay = today.getMonth() === 6 && today.getDate() === 16; // 6 = julio
+    if (!isBirthdayDay) return;
+
+    // Solo una vez por día (localStorage)
+    const STORAGE_KEY = 'birthday-modal-shown-2026-07-16';
+    if (localStorage.getItem(STORAGE_KEY) === '1') return;
+
+    const closeModal = () => {
+      card.classList.remove('scale-100', 'opacity-100');
+      card.classList.add('scale-95', 'opacity-0');
+      backdrop.style.opacity = '0';
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        modal.setAttribute('aria-hidden', 'true');
+        stopConfetti();
+      }, 400);
+      localStorage.setItem(STORAGE_KEY, '1');
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    ctaBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Confeti
+    const COLORS = ['#ec4899', '#f43f5e', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#fbbf24'];
+    const SHAPES = ['■', '●', '▲', '★', '♦', '✦'];
+    const PIECES = 120;
+    let confettiInterval = null;
+    const pieces = [];
+
+    const spawnPiece = (initial = false) => {
+      const piece = document.createElement('div');
+      piece.textContent = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+      piece.style.cssText = `
+        position: absolute;
+        top: ${initial ? Math.random() * -100 : -30}px;
+        left: ${Math.random() * 100}%;
+        color: ${COLORS[Math.floor(Math.random() * COLORS.length)]};
+        font-size: ${10 + Math.random() * 16}px;
+        opacity: ${0.7 + Math.random() * 0.3};
+        will-change: transform;
+        pointer-events: none;
+      `;
+      const duration = 3500 + Math.random() * 3500;
+      const drift = (Math.random() - 0.5) * 200;
+      const rotateStart = Math.random() * 360;
+      const rotateEnd = rotateStart + (Math.random() - 0.5) * 720;
+      piece.animate(
+        [
+          { transform: `translate(0, 0) rotate(${rotateStart}deg)` },
+          { transform: `translate(${drift}px, 110vh) rotate(${rotateEnd}deg)` },
+        ],
+        {
+          duration,
+          easing: 'cubic-bezier(0.2, 0.6, 0.4, 1)',
+          fill: 'forwards',
+        }
+      );
+      confettiLayer.appendChild(piece);
+      pieces.push(piece);
+      setTimeout(() => {
+        piece.remove();
+        const idx = pieces.indexOf(piece);
+        if (idx > -1) pieces.splice(idx, 1);
+      }, duration + 200);
+    };
+
+    const startConfetti = () => {
+      for (let i = 0; i < PIECES; i++) spawnPiece(true);
+      confettiInterval = setInterval(() => {
+        for (let i = 0; i < 4; i++) spawnPiece(false);
+      }, 250);
+    };
+
+    const stopConfetti = () => {
+      if (confettiInterval) {
+        clearInterval(confettiInterval);
+        confettiInterval = null;
+      }
+      pieces.forEach((p) => p.remove());
+      pieces.length = 0;
+    };
+
+    // Mostrar
+    requestAnimationFrame(() => {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      modal.setAttribute('aria-hidden', 'false');
+      backdrop.style.transition = 'opacity 400ms';
+      backdrop.style.opacity = '1';
+      requestAnimationFrame(() => {
+        card.classList.remove('scale-95', 'opacity-0');
+        card.classList.add('scale-100', 'opacity-100');
+        startConfetti();
+      });
+    });
+  })();
+</script>

@@ -1,6 +1,6 @@
 ---
 title: "Nuestra aventura por Argentina — Paso a paso"
-date: 2026-07-03
+date: 2026-05-15
 description: "El viaje más largo de nuestras vidas: desde Nicaragua hasta Argentina, contado paso a paso."
 image: "/images/argentina/teatro.webp"
 tags: ["viajes", "argentina", "luna de miel", "semana santa"]
@@ -58,7 +58,7 @@ Excepto en **Toki Moments**, un café de familia japonesa. El encargado es un ba
 
 [Toki Moments](https://www.instagram.com/toki.moment/?hl=en)
 
-También fuimos a la galería más famosa de Argentina. Y una noche fuimos a probar la Fugazzeta, la famosa pizza argentina. La verdad, meh. Fuimos a Güerrín, estaba llenísimo, hicimos fila pero no tardamos. Y repito: fue meh.
+También fuimos a la galería más famosa de Argentina. Y una noche fuimos a probar la Fugazzeta, la famosa pizza argentina. La verdad, meh. Fuimos a Güerrín, estaba lleno, hicimos fila pero no tardamos. Y repito: fue meh.
 
 Fuimos al Puente de la Mujer, un sitio hermoso. Hice la broma de que era El Salvador Allende del primer mundo. Pero cuando intentamos comprar dos cervezas en happy hour nos dimos cuenta de que era El Salvador Allende de Dubái: carísimo.
 
@@ -76,6 +76,6 @@ También conocimos la gran flor metálica y el Barrio Chino. Todo genial.
 
 ## Paso 6: El regreso a Nicaragua
 
-Y al final emprendimos nuestro viaje de regreso. Cansado, pero vi *F1* (la película de Brad Pitt) en el vuelo — buena, la verdad jaja. Pero menos glamour: solo queríamos volver a casa y descansar.
+Y al final emprendimos nuestro viaje de regreso. Cansado, pero vi *F1* (la película de Brad Pitt) en el vuelo — buena, la verdad jaja. Pero menos glamour: solo queríamos volver a la casa y descansar.
 
 Fue un gran viaje. Argentina nos recibió con los brazos abiertos, nos dio experiencias inolvidables, y aunque la comida no fue lo nuestro, nos llevamos el corazón lleno. 🇦🇷❤️🇳🇮

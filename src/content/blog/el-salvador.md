@@ -1,25 +1,35 @@
 ---
-title: "Sol y playa en El Salvador"
-date: 2026-05-10
-description: "De la mano en las playas del Salvador, surf, pupusas y atardeceres inolvidables."
-image: "https://images.unsplash.com/photo-1598465101576-8e3b1e4a1a0f?w=800"
-tags: ["viajes", "el-salvador", "playa"]
+title: "El Salvador por culpa de Marco Antonio Solís"
+date: 2026-06-10
+description: "Un viaje improvisado, pagado por mi esposa, con un auto que odié y un concierto que valió cada centavo."
+image: "/images/el-salvador/concierto.webp"
+tags: ["viajes", "el-salvador", "conciertos", "marco-antonio-solís"]
 ---
 
-## Llegada a El Tunco
+## La sorpresa
 
-El Salvador nos recibió con su calor tropical y el sonido del mar. Nos hospedamos en El Tunco, el pueblo surfista por excelencia, donde las olas y el ambiente relajado nos hicieron sentir en casa.
+Este viaje no estaba en los planes. Yalaniz ganó un dinero y decidió, sin avisarme, que íbamos a El Salvador. El motivo oficial era ir a ver a **Marco Antonio Solís**, que se presentaba allá. El motivo real — lo supe después — era que ella tenía ganas de regalarnos algo juntos. Crédito a quien lo merece: este viaje lo costeó completamente ella.
 
-## Días de playa
+## Un viaje distinto a los demás
 
-Pasamos los días recorriendo la costa: Sunzal, El Zonte y la hermosa playa San Diego. Aprendimos a surfear (con más caídas que olas) y disfrutamos de los mejores atardeceres sobre el Pacífico.
+A diferencia de Argentina, este fue un viaje **sencillo**. Sin itinerarios apretados, sin exprimir cada hora. Reservamos con tiempo, llegamos temprano y nos dimos lujos que en otros viajes no nos dimos — como **alquilar un auto**.
 
-## La gastronomía
+## El Suzuki Baleno
 
-Las pupusas se robaron el show — de queso, loroco, chicharrón… ¡las probamos todas! También exploramos los mercados locales y probamos el fresco de marañón.
+Nos dieron un **Suzuki Baleno automático**. Lo odié. El automático nunca me ha parecido cómodo, se siente artificial y desconectado, como si el auto decidiera por mí. Prefiero mil veces un manual. Pero bueno, era lo que había y no íbamos a quejarnos por eso. Sirvió para movernos sin depender de nadie y eso, al menos, lo agradezco.
 
-## Volcán de Santa Ana
+## La foto que se volvió sensación
 
-Para variar un poco, subimos al Volcán de Santa Ana. La vista desde la cima, con su laguna verde esmeralda dentro del cráter, fue simplemente impresionante.
+Otro momento que vale la pena recordar de ese viaje fue cuando Yalaniz se puso su traje de baño y se tomó unas fotos en **Cadejo**, un restaurante famosísimo a la orilla del mar, construido sobre una especie de acantilado. El mar rompiendo abajo, las rocas, las palmeras, el atardecer... el lugar habla solo.
 
-El Salvador nos regaló días de sol, descanso y aventura. ¡Definitivamente volveremos!
+Esa foto se la puso de estado y la gente no paraba de preguntarle dónde era, qué lugar era ese. De las que sí generan impacto.
+
+![Yalaniz en Cadejo](/images/el-salvador/cadejo.webp)
+
+## El concierto: la razón de todo
+
+La organización fue un desastre. El concierto se atrasó un montón, casi **dos horas**. Pero Marco Antonio canta genial, ese viejo no le pasan los años. Aunque, otra vez por la organización, la pantalla principal se apagó. Y como el show tardó tanto en arrancar, la gente ya estaba ebria y creo que ya ni sabía lo que cantaba jajaja.
+
+Al final, pudimos ir a un apartamento que un amigo de Yalaniz nos consiguió, descansar un poco, devolver el auto al día siguiente y agarrar vuelo de regreso a casa.
+
+El Salvador nos regaló algo simple pero especial: tiempo sin estrés, un concierto memorable y la confirmación de que los mejores viajes a veces son los que nacen de un impulso de Yalaniz.

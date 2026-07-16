@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../sections/Header.astro';
+import BirthdayModal from '../components/BirthdayModal.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -10,6 +11,7 @@ const posts = (await getCollection('blog'))
 <BaseLayout>
   <main class="min-h-screen bg-white">
     <Header dark />
+    <BirthdayModal />
 
     <!-- Hero Slideshow -->
     <section class="relative w-full h-screen overflow-hidden">

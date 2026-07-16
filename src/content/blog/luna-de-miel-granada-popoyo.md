@@ -1,6 +1,6 @@
 ---
 title: "De la boda directo a la luna de miel: Granada y Popoyo"
-date: 2026-07-03
+date: 2026-03-02
 description: "Salimos de la boda con destino a Granada... pero el cansancio nos ganó antes de la fiesta. Al día siguiente: vigorón, paseo y rumbo a las olas de Popoyo."
 image: "https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/luna%20de%20miel%20mian%20photo-moGEWTb4C5MTgAljSpYW2uyLvzdQUM"
 tags: ["luna de miel", "nicaragua", "granada", "popoyo"]
@@ -8,7 +8,7 @@ tags: ["luna de miel", "nicaragua", "granada", "popoyo"]
 
 ## Salida express
 
-Ni bien terminó la celebración, con el vestido de novia ainda puesto prácticamente, arrancamos para Granada. La idea era llegar, instalarnos en el **Socialtel Granada** y salir a celebrar — después de todo, ¡recién nos habíamos casado!
+Ni bien terminó la celebración, con el vestido de novia todavía puesto prácticamente, arrancamos para Granada. La idea era llegar, instalarnos en el **Socialtel Granada** y salir a celebrar — después de todo, ¡recién nos habíamos casado!
 
 ## Plan vs realidad
 
