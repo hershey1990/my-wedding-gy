@@ -1,7 +1,21 @@
 ---
 import '../styles/global.css';
 
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+}
+
+const { title, description, image, url, type = 'website' } = Astro.props as Props;
+const siteName = 'Gershell & Yalaniz';
+const pageTitle = title ? `${title} — ${siteName}` : siteName;
 const isBoda = Astro.url.pathname.startsWith('/boda');
+const canonicalURL = url ?? Astro.url.origin + Astro.url.pathname;
+const defaultDescription = 'Blog de Gershell y Yalaniz — momentos y recuerdos de nuestra boda';
+const defaultImage = 'https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/185766.png';
 ---
 
 <!DOCTYPE html>
@@ -14,7 +28,22 @@ const isBoda = Astro.url.pathname.startsWith('/boda');
   <link rel="icon" type="image/png" href="https://3mndwrm41a37dpt7.public.blob.vercel-storage.com/185766.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
-  <title>Gershell & Yalaniz</title>
+  <meta name="description" content={description ?? defaultDescription} />
+  <title>{pageTitle}</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title ?? siteName} />
+  <meta property="og:description" content={description ?? defaultDescription} />
+  <meta property="og:image" content={image ?? defaultImage} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content={siteName} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title ?? siteName} />
+  <meta name="twitter:description" content={description ?? defaultDescription} />
+  <meta name="twitter:image" content={image ?? defaultImage} />
 </head>
 <body class="m-0">
   {

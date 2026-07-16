@@ -14,9 +14,16 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const post = await getEntry('blog', slug!);
 const { Content } = await render(post);
+const canonicalURL = `${Astro.url.origin}/blog/${slug}`;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  url={canonicalURL}
+  type="article"
+>
   <main class="min-h-screen bg-white">
     <Header />
     <article class="max-w-2xl mx-auto px-4 pt-32 pb-20">
@@ -57,7 +64,44 @@ const { Content } = await render(post);
         <Content />
       </div>
 
+      <!-- Social sharing -->
       <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-sm text-gray-500 mb-4">Comparte esta publicación</p>
+        <div class="flex gap-3">
+          <!-- WhatsApp -->
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(post.data.title + ' — ' + canonicalURL)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25D366] text-white text-sm hover:opacity-90 transition-opacity"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp
+          </a>
+
+          <!-- Facebook -->
+          <a
+            href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(canonicalURL)}&quote=${encodeURIComponent(post.data.title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1877F2] text-white text-sm hover:opacity-90 transition-opacity"
+          >
+            <i class="fa-brands fa-facebook"></i>
+            Facebook
+          </a>
+
+          <!-- Copy link -->
+          <button
+            id="copy-link-btn"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 text-gray-700 text-sm hover:bg-gray-200 transition-colors"
+          >
+            <i class="fa-solid fa-link"></i>
+            <span id="copy-label">Copiar enlace</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-gray-200">
         <a href="/blog" class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700">
           <i class="fa-solid fa-arrow-left"></i>
           Volver al blog
@@ -66,3 +110,19 @@ const { Content } = await render(post);
     </article>
   </main>
 </BaseLayout>
+
+<script>
+  const btn = document.getElementById('copy-link-btn');
+  const label = document.getElementById('copy-label');
+  if (btn) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        label.textContent = '¡Copiado!';
+        setTimeout(() => { label.textContent = 'Copiar enlace'; }, 2000);
+      } catch {
+        label.textContent = 'Error al copiar';
+      }
+    });
+  }
+</script>

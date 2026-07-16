@@ -7,7 +7,10 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Nuestro Blog"
+  description="Los momentos que compartimos juntos — Blog de Gershell y Yalaniz"
+>
   <main class="min-h-screen bg-white">
     <Header />
     <section class="max-w-4xl mx-auto px-4 pt-32 pb-20">
